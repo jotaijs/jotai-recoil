@@ -39,7 +39,7 @@
     "jsx-runtime.d.ts"
   ],
   "scripts": {
-    "compile": "microbundle build -f modern,umd --globals react=React",
+    "compile": "microbundle build -f modern,umd --globals react=React,recoil=Recoil",
     "postcompile": "cp dist/index.modern.mjs dist/index.modern.js && cp dist/index.modern.mjs.map dist/index.modern.js.map",
     "test": "run-s eslint tsc-test jest",
     "eslint": "eslint --ext .js,.ts,.tsx .",

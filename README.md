@@ -3,5 +3,3 @@
 👻🌀
 
 ## Tweets
-
-- [Initial announcement]()
