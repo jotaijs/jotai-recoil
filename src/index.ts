@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { atom } from 'jotai/vanilla';
 import { selectAtom } from 'jotai/vanilla/utils';
-import { useSetAtom } from 'jotai/react';
+import { useAtom } from 'jotai/react';
 import { useHydrateAtoms } from 'jotai/react/utils';
 import { useRecoilSnapshot } from 'recoil';
 import type { RecoilValue, Snapshot } from 'recoil';
@@ -9,7 +9,9 @@ import type { RecoilValue, Snapshot } from 'recoil';
 const recoilSnapshotAtom = atom<Snapshot | null>(null);
 
 export const useSyncRecoilSnapshot = (dangerouslySyncInRender?: boolean) => {
-  const setRecoilSnapshot = useSetAtom(recoilSnapshotAtom);
+  // We intentionally subscribe to recoilSnapshotAtom
+  // ref: https://github.com/pmndrs/jotai/issues/2168
+  const [, setRecoilSnapshot] = useAtom(recoilSnapshotAtom);
   const snapshot = useRecoilSnapshot();
   useHydrateAtoms([[recoilSnapshotAtom, snapshot]]);
   if (dangerouslySyncInRender) {
