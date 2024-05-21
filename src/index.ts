@@ -19,7 +19,7 @@ export const useSyncRecoilSnapshot = (dangerouslySyncInRender?: boolean) => {
     if (!dangerouslySyncInRender) {
       setRecoilSnapshot(snapshot);
     }
-  }, [snapshot, setRecoilSnapshot]);
+  }, [dangerouslySyncInRender, snapshot, setRecoilSnapshot]);
 };
 
 export const atomWithRecoilValue = <T>(recoilValue: RecoilValue<T>) =>
