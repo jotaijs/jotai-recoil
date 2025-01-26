@@ -12,7 +12,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "jotai-recoil": ["./src/index.js"]
+      "jotai-recoil": ["./src/index.ts"]
     }
   },
   "exclude": ["dist", "examples"]
